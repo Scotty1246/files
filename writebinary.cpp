@@ -9,10 +9,12 @@ int main( )
    float b = 68.123; 
    char c = 'J';
  
-   ofstream out{"abc.bin"};
+   ofstream out{"abc.bin", ios::binary};
    if(out)
    {
-    out << a << " " << b << " " << c; 
+	out.write(reinterpret_cast<char *> (&a), sizeof(a));
+	out.write(reinterpret_cast<char *> (&b), sizeof(b));
+	out.write(reinterpret_cast<char *> (&c), sizeof(c));
    }
    else
    {
