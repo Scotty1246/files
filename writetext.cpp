@@ -9,13 +9,17 @@ int main( )
    float b = 68.123; 
    char c = 'J';
  
-   ifstream in{"abc.txt"};
-   if(in)
+   ofstream out{"abc.txt"};
+   if(out)
    {
-      in >> a >> b >> c;
+    out << a << " " << b << " " << c; 
    }
-   cout<<a<<" "<<b<<" "<<c;//display data to console (i.e. as formatted chars)
-
+   else
+   {
+      cout << "Error opening file";
+   }   
+cout<<a<<" "<<b<<" "<<c;//display data to console (i.e. as formatted chars)
+   
    cout<<endl<<endl;
  
    return 0;
